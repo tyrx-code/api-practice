@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "f2e69f6a-8431-4de9-8689-94206e05f6a0",
+		"name": "Practice_Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddPlace",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const bodyResponse = pm.response.json();\r",
+							"\r",
+							"pm.collectionVariables.set(\"place_id\", bodyResponse.place_id);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\":{\r\n        \"lat\":-30.123456,\r\n        \"lng\":30.123456\r\n    },\r\n    \"accuracy\": 50,\r\n    \"name\": \"ExampleFromPostmanToThisMeetingWithPaco\",\r\n    \"phone_number\": \"(+52) 463 953666\",\r\n    \"address\": \"Karate Street #03\",\r\n    \"types\": [\r\n        \"Karate\",\r\n        \"Cucumber\"\r\n    ],\r\n    \"website\": \"http://google.com\",\r\n    \"language\": \"Spanish-ES\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123",
+					"protocol": "http",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"place",
+						"add",
+						"json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "qaclick123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPlace",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://rahulshettyacademy.com/maps/api/place/get/json?place_id={{place_id}}&key=qaclick123",
+					"protocol": "http",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"place",
+						"get",
+						"json"
+					],
+					"query": [
+						{
+							"key": "place_id",
+							"value": "{{place_id}}"
+						},
+						{
+							"key": "key",
+							"value": "qaclick123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePlace",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": \"AddressUpdatedFromPostman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://rahulshettyacademy.com/maps/api/place/update/json?key=qaclick123&place_id={{place_id}}",
+					"protocol": "http",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"place",
+						"update",
+						"json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "qaclick123"
+						},
+						{
+							"key": "place_id",
+							"value": "{{place_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePlace",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"place_id\": \"{{place_id}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://rahulshettyacademy.com/maps/api/place/delete/json?key=qaclick123",
+					"protocol": "http",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"place",
+						"delete",
+						"json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "qaclick123"
+						},
+						{
+							"key": "place_id",
+							"value": "66c1ee00512ff4741900934526dce39d",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "place_id",
+			"value": ""
+		}
+	]
+}

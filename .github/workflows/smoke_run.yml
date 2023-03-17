@@ -41,7 +41,7 @@ jobs:
           
       - name: Run Collection
         run: |
-          newman run Practice_Test.postman_collection.json -r htmlextra --reporter-htmlextra-export resultsFolder/htmlreport.html --reporter-htmlextra-darkTheme  > resultsFolder/report.html
+          newman run Practice_Test.postman_collection.json -r htmlextra --reporter-htmlextra-export resultsFolder/htmlreport.html --reporter-htmlextra-darkTheme
 # Practice_Test.postman_collection.json
       - name: Output the run details
         uses: actions/upload-artifact@v2

@@ -37,9 +37,14 @@ jobs:
           
       - name: Folder for results
         run: |
-          mkdir -p ResultsFolder
+          mkdir -p resultsFolder
           
       - name: Run Collection
         run: |
-          newman run Practice_Test.postman_collection.json -r htmlextra --reporter-htmlextra-export ResultsFolder/report.html
+          newman run Practice_Test.postman_collection.json -r htmlextra --reporter-htmlextra-export resultsFolder/htmlreport.html --reporter-htmlextra-darkTheme  > resultsFolder/report.html
 # Practice_Test.postman_collection.json
+      - name: Output the run details
+        uses: actions/upload-artifact@v2
+        with:
+          name: RunReports
+          path: resultsFolder
